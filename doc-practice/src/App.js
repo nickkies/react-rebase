@@ -1,6 +1,10 @@
+import Composition from "./components/1-Props/Composition";
+
 function App() {
   return (
-    <>hi</>
+    <>
+      <Composition />
+    </>
   );
 }
 
