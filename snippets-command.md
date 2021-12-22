@@ -1,3 +1,7 @@
-#snippets command
-##rfc
-functional component 생성  
+# snippets command
+
+## rfc
+React Functional Component 생성  
+
+## rcc
+React Class Component 생성  
