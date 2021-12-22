@@ -1,4 +1,5 @@
-import Event from './components/4-Event/Event';
+import Condition from './components/5-ConditionalRendering/Condition';
+// import Event from './components/4-Event/Event';
 // import ClassComponent from './components/2-State/ClassComponent';
 // import ClassComponent2 from './components/3-LifeCycle/ClassComponent';
 // import FunctionalComponent from './components/2-State/FunctionalComponent';
@@ -8,7 +9,8 @@ import Event from './components/4-Event/Event';
 function App() {
   return (
     <>
-      <Event />
+      <Condition />
+      {/* <Event /> */}
       {/* <ClassComponent2 />/ */}
       {/* <ClassComponent /> */}
       {/* <FunctionalComponent /> */}
