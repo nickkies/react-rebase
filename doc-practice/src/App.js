@@ -1,4 +1,5 @@
 import ControlledComponent from './components/7-Form/ControlledComponent';
+import UncontrolledComponent from './components/7-Form/UncontrolledComponent';
 // import List from './components/6-List/List';
 // import Condition from './components/5-ConditionalRendering/Condition';
 // import Event from './components/4-Event/Event';
@@ -11,6 +12,7 @@ import ControlledComponent from './components/7-Form/ControlledComponent';
 function App() {
   return (
     <>
+      <UncontrolledComponent />
       <ControlledComponent />
       {/* <List /> */}
       {/* <Condition /> */}
