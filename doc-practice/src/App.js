@@ -1,4 +1,5 @@
-import List from './components/6-List/List';
+import ControlledComponent from './components/7-Form/ControlledComponent';
+// import List from './components/6-List/List';
 // import Condition from './components/5-ConditionalRendering/Condition';
 // import Event from './components/4-Event/Event';
 // import ClassComponent from './components/2-State/ClassComponent';
@@ -10,7 +11,8 @@ import List from './components/6-List/List';
 function App() {
   return (
     <>
-      <List />
+      <ControlledComponent />
+      {/* <List /> */}
       {/* <Condition /> */}
       {/* <Event /> */}
       {/* <ClassComponent2 />/ */}
