@@ -8,7 +8,15 @@ export default function ControlledComponent() {
   );
 
   const handleChange = (event) => {
-    setName(event.target.value);
+    const { name, value, type } = event.target;
+
+    if (type === 'text') {
+      setName(value);
+    } else if (name === 'flavor') {
+      setFlavor(value);
+    } else if (name === 'essay') {
+      setEssay(value);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -16,19 +24,19 @@ export default function ControlledComponent() {
     event.preventDefault();
   };
 
-  const handleEssayChange = (event) => {
-    setEssay(event.target.value);
-  };
+  // const handleEssayChange = (event) => {
+  //   setEssay(event.target.value);
+  // };
 
-  const handleFlavorChange = (event) => {
-    setFlavor(event.target.value);
-  };
+  // const handleFlavorChange = (event) => {
+  //   setFlavor(event.target.value);
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Name:
-        <input type='text' value={name} onChange={handleChange} />
+        <input name='name' type='text' value={name} onChange={handleChange} />
       </label>
 
       <br />
@@ -36,7 +44,7 @@ export default function ControlledComponent() {
 
       <label>
         Essay:
-        <textarea value={essay} onChange={handleEssayChange} />
+        <textarea name='essay' value={essay} onChange={handleChange} />
       </label>
 
       <br />
@@ -44,7 +52,7 @@ export default function ControlledComponent() {
 
       <label>
         Pick your favorite flavor:
-        <select value={flavor} onChange={handleFlavorChange}>
+        <select name='flavor' value={flavor} onChange={handleChange}>
           <option value='grapefruit'>Grapefruit</option>
           <option value='lime'>Lime</option>
           <option value='coconut'>Coconut</option>
