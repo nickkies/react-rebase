@@ -1,5 +1,6 @@
-import Reducer from './components/8-Hooks/Reducer';
-import State from './components/8-Hooks/State';
+import WelcomeDialog from './components/9-Composition/WelcomeDialog';
+// import Reducer from './components/8-Hooks/Reducer';
+// import State from './components/8-Hooks/State';
 // import ControlledComponent from './components/7-Form/ControlledComponent';
 // import UncontrolledComponent from './components/7-Form/UncontrolledComponent';
 // import List from './components/6-List/List';
@@ -14,8 +15,9 @@ import State from './components/8-Hooks/State';
 function App() {
   return (
     <>
-      <Reducer />
-      <State />
+      <WelcomeDialog />
+      {/* <Reducer />
+      <State /> */}
       {/* <UncontrolledComponent />
       <ControlledComponent /> */}
       {/* <List /> */}
