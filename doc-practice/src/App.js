@@ -1,5 +1,7 @@
-import ControlledComponent from './components/7-Form/ControlledComponent';
-import UncontrolledComponent from './components/7-Form/UncontrolledComponent';
+import Reducer from './components/8-Hooks/Reducer';
+import State from './components/8-Hooks/State';
+// import ControlledComponent from './components/7-Form/ControlledComponent';
+// import UncontrolledComponent from './components/7-Form/UncontrolledComponent';
 // import List from './components/6-List/List';
 // import Condition from './components/5-ConditionalRendering/Condition';
 // import Event from './components/4-Event/Event';
@@ -12,8 +14,10 @@ import UncontrolledComponent from './components/7-Form/UncontrolledComponent';
 function App() {
   return (
     <>
-      <UncontrolledComponent />
-      <ControlledComponent />
+      <Reducer />
+      <State />
+      {/* <UncontrolledComponent />
+      <ControlledComponent /> */}
       {/* <List /> */}
       {/* <Condition /> */}
       {/* <Event /> */}
