@@ -1,4 +1,6 @@
-import ThankUDialog from './components/9-Composition/ThankUDialog';
+import Button from './components/10-HOC/Button';
+import Input from './components/10-HOC/Input';
+// import ThankUDialog from './components/9-Composition/ThankUDialog';
 // import Dialog from './components/9-Composition/Dialog';
 // import WelcomeDialog from './components/9-Composition/WelcomeDialog';
 // import Reducer from './components/8-Hooks/Reducer';
@@ -17,7 +19,11 @@ import ThankUDialog from './components/9-Composition/ThankUDialog';
 function App() {
   return (
     <>
-      <ThankUDialog />
+      <Input />
+      <br />
+      <br />
+      <Button />
+      {/* <ThankUDalog /> */}
       {/* <Dialog /> */}
       {/* <WelcomeDialog /> */}
       {/* <Reducer />
