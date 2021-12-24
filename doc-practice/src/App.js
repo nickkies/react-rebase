@@ -1,4 +1,6 @@
-import WelcomeDialog from './components/9-Composition/WelcomeDialog';
+import ThankUDialog from './components/9-Composition/ThankUDialog';
+// import Dialog from './components/9-Composition/Dialog';
+// import WelcomeDialog from './components/9-Composition/WelcomeDialog';
 // import Reducer from './components/8-Hooks/Reducer';
 // import State from './components/8-Hooks/State';
 // import ControlledComponent from './components/7-Form/ControlledComponent';
@@ -15,7 +17,9 @@ import WelcomeDialog from './components/9-Composition/WelcomeDialog';
 function App() {
   return (
     <>
-      <WelcomeDialog />
+      <ThankUDialog />
+      {/* <Dialog /> */}
+      {/* <WelcomeDialog /> */}
       {/* <Reducer />
       <State /> */}
       {/* <UncontrolledComponent />
