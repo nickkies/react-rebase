@@ -1,4 +1,5 @@
-import Example from './components/13-Portal/Example';
+import Component from './components/14-PropTypes/Component';
+// import Example from './components/13-Portal/Example';
 // import Example from './components/12-Context/Example';
 // import Memo from './components/Memoization/Memo';
 // import Button from './components/10-HOC/Button';
@@ -22,7 +23,8 @@ import Example from './components/13-Portal/Example';
 function App() {
   return (
     <>
-      <Example />
+      <Component />
+      {/* <Example /> */}
       {/* <Memo /> */}
       {/* <Input />
       <br />
