@@ -7,7 +7,7 @@ function PropComponent(props) {
 
 PropComponent.defaultProps = {
   name: 'nick',
-  age: 1,
+  age: 8,
 };
 
 PropComponent.propTyeps = {

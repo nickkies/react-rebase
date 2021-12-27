@@ -1,7 +1,7 @@
-import Component from './components/14-PropTypes/Component';
+// import Component from './components/14-PropTypes/Component';
 // import Example from './components/13-Portal/Example';
 // import Example from './components/12-Context/Example';
-// import Memo from './components/Memoization/Memo';
+import Memo from './components/11-Memoization/Memo';
 // import Button from './components/10-HOC/Button';
 // import Input from './components/10-HOC/Input';
 // import ThankUDialog from './components/9-Composition/ThankUDialog';
@@ -23,9 +23,9 @@ import Component from './components/14-PropTypes/Component';
 function App() {
   return (
     <>
-      <Component />
+      {/* <Component /> */}
       {/* <Example /> */}
-      {/* <Memo /> */}
+      <Memo />
       {/* <Input />
       <br />
       <br />
