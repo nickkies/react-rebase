@@ -1,4 +1,5 @@
-import Memo from './components/Memoization/Memo';
+import Example from './components/12-Context/Example';
+// import Memo from './components/Memoization/Memo';
 // import Button from './components/10-HOC/Button';
 // import Input from './components/10-HOC/Input';
 // import ThankUDialog from './components/9-Composition/ThankUDialog';
@@ -20,7 +21,8 @@ import Memo from './components/Memoization/Memo';
 function App() {
   return (
     <>
-      <Memo />
+      <Example />
+      {/* <Memo /> */}
       {/* <Input />
       <br />
       <br />
