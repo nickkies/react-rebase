@@ -1,4 +1,5 @@
-import Example from './components/12-Context/Example';
+import Example from './components/13-Portal/Example';
+// import Example from './components/12-Context/Example';
 // import Memo from './components/Memoization/Memo';
 // import Button from './components/10-HOC/Button';
 // import Input from './components/10-HOC/Input';
