@@ -1,0 +1,7 @@
+.commentItem {
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  background-color: aquamarine;
+}

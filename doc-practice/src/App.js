@@ -1,5 +1,6 @@
-import Button from './components/10-HOC/Button';
-import Input from './components/10-HOC/Input';
+import Memo from './components/Memoization/Memo';
+// import Button from './components/10-HOC/Button';
+// import Input from './components/10-HOC/Input';
 // import ThankUDialog from './components/9-Composition/ThankUDialog';
 // import Dialog from './components/9-Composition/Dialog';
 // import WelcomeDialog from './components/9-Composition/WelcomeDialog';
@@ -19,10 +20,11 @@ import Input from './components/10-HOC/Input';
 function App() {
   return (
     <>
-      <Input />
+      <Memo />
+      {/* <Input />
       <br />
       <br />
-      <Button />
+      <Button /> */}
       {/* <ThankUDalog /> */}
       {/* <Dialog /> */}
       {/* <WelcomeDialog /> */}
