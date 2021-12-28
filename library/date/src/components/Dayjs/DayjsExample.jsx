@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 
 dayjs.locale('ko');
-dayjs.extends(utc);
-dayjs.extends(timezone);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default function DayjsExample() {
   const birthDayRef = useRef(null);
