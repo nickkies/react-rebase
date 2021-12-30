@@ -1,10 +1,10 @@
 import './App.css';
-import StyledComponentsEx from './components/styledComponents/StyledComponentsEx';
+import SCBasic from './components/styledComponents/SCBasic';
 
 function App() {
   return (
     <div className='App'>
-      <StyledComponentsEx />
+      <SCBasic />
     </div>
   );
 }
