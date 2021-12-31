@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const Button = styled.button`
@@ -71,6 +71,19 @@ const base = css`
   color: turquoise;
 `;
 
+const paragraph = css`
+  color: turquoise;
+
+  a {
+    border-bottom: 1px solid currentColor;
+    cursor: pointer;
+  }
+
+  header & {
+    color: green;
+  }
+`;
+
 export default function EBasic() {
   return (
     <>
@@ -117,6 +130,46 @@ export default function EBasic() {
         This has a gradient background in browsers that support gradients and is
         red in browsers that don't support gradients
       </div>
+      <br />
+
+      <header>
+        <p css={paragraph}>This is green since it's inside a header</p>
+      </header>
+      <p css={paragraph}>This is turquoise since it's not inside a header.</p>
+      <br />
+
+      <p
+        css={css`
+          font-size: 30px;
+          @media (min-width: 1000px) {
+            font-size: 100px;
+          }
+        `}
+      >
+        Some text!
+      </p>
+      <br />
+
+      <Global
+        styles={{
+          '.some-class': {
+            fontSize: 50,
+            textAlign: 'center',
+          },
+        }}
+      />
+
+      <div className='some-class'>
+        <Global
+          styles={css`
+            .some-class {
+              color: hotpink !important;
+            }
+          `}
+        />
+        This is hotpink now!
+      </div>
+      <div className='some-class'>outside div</div>
     </>
   );
 }
