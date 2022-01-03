@@ -33,6 +33,16 @@ export default function Exemple() {
 
       <div className='square-av'></div>
       <div className='circle-av'></div>
+      <br />
+
+      <div className='sidebar'>sidebar</div>
+      <br />
+
+      <div className='gray'>gray</div>
+      <div className='button'>button</div>
+      <br />
+
+      <div className='pulse'>pulse</div>
     </div>
   );
 }
