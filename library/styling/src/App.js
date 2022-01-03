@@ -1,5 +1,6 @@
 import './App.css';
-import EAdvanced from './components/Emotion/2-EAdvanced';
+import Exemple from './components/Sass/Exemple';
+// import EAdvanced from './components/Emotion/2-EAdvanced';
 // import EBasic from './components/Emotion/1-EBasic';
 // import SCGlobalStyle from './components/styledComponents/4-SCGlobalStyle';
 // import SCTheming from './components/styledComponents/3-SCTheming';
@@ -9,7 +10,8 @@ import EAdvanced from './components/Emotion/2-EAdvanced';
 function App() {
   return (
     <div className='App'>
-      <EAdvanced />
+      <Exemple />
+      {/* <EAdvanced /> */}
       {/* <EBasic /> */}
       {/* <SCGlobalStyle /> */}
       {/* <SCTheming /> */}
