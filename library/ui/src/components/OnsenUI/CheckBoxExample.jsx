@@ -8,7 +8,7 @@ export default function CheckboxExample() {
         <label className='left'>
           <Checkbox input-id='check-1' checked></Checkbox>
         </label>
-        <label for='check-1' className='center'>
+        <label htmlFor='check-1' className='center'>
           Apple
         </label>
       </ListItem>
@@ -16,7 +16,7 @@ export default function CheckboxExample() {
         <label className='left'>
           <Checkbox input-id='check-2'></Checkbox>
         </label>
-        <label for='check-2' className='center'>
+        <label htmlFor='check-2' className='center'>
           Banana
         </label>
       </ListItem>
