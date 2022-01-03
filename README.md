@@ -14,8 +14,8 @@
 
 > 날짜 관련 라이브러리
 >
-> 1. moment
-> 2. dayjs
+> 1. Moment.js
+> 2. Day.js
 > 3. date-fns
 
 - ### styling
@@ -23,5 +23,18 @@
 > 스타일링 관련 라이브러리
 >
 > 1. styled-component
-> 2. emotion
-> 3. sass
+> 2. Emotion
+> 3. Sass
+
+- ### ui
+
+> UI 관련 라이브러리
+>
+> 1. Onsen UI
+> 2. Ant Design
+> 3. React Semantic UI
+> 4. React BootStrap
+> 5. Meterial UI
+> 6. Tailwindcss
+> 7. React spring
+> 8. Framer Motion
