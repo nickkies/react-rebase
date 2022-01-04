@@ -1,8 +1,8 @@
 // import 'onsenui/css/onsenui.css';
 // import 'onsenui/css/onsen-css-components.css';
 // import OnsenUIExample from './components/OnsenUI/OnsenUIExample';
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import AntDesignExample from './components/AntDesign/AntDesignExample';
+import './App.css';
+import AntDesignExample from './components/AntDesign/00-AntDesignExample';
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function AntDesignExample() {
+export default function Icon() {
   return <div></div>;
 }
