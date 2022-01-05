@@ -6,6 +6,7 @@ import CheckBoxExample from './CheckBoxExample';
 import FabExample from './FabExample';
 import ListExample from './ListExample';
 import ProgressExample from './ProgressExample';
+import AlertExample from './AlertExample';
 
 export default function OnsenUIExample() {
   return (
@@ -16,6 +17,7 @@ export default function OnsenUIExample() {
       <CheckBoxExample />
       <ActionSheetExample />
       <ButtonExample />
+      <AlertExample />
     </Page>
   );
 }
