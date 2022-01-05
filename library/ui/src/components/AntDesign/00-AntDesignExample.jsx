@@ -5,10 +5,12 @@ import React from 'react';
 // import LayoutExample from './04-LayoutExample';
 import FormExample from './05-FormExample';
 import TableExample from './06-TableExample';
+import ModalExample from './07-ModalExample';
 
 export default function AntDesignExample() {
   return (
     <>
+      <ModalExample />
       <TableExample />
       <FormExample />
       {/* <LayoutExample /> */}
