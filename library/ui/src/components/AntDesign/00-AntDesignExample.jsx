@@ -6,10 +6,12 @@ import React from 'react';
 import FormExample from './05-FormExample';
 import TableExample from './06-TableExample';
 import ModalExample from './07-ModalExample';
+import ProgressEample from './08-ProgressEample';
 
 export default function AntDesignExample() {
   return (
     <>
+      <ProgressEample />
       <ModalExample />
       <TableExample />
       <FormExample />
