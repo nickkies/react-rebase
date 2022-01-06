@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import GridExample from './01-GridExample';
 import ThemeExample from './02-ThemeExample';
+import ButtonExample from './03-ButtonExample';
 
 export default function MeterialUIExample() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -21,6 +22,7 @@ export default function MeterialUIExample() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ButtonExample />
       <ThemeExample />
       <GridExample />
     </ThemeProvider>
