@@ -1,6 +1,8 @@
 // import './App.css';
 
-import ReactSpringExample from './components/ReactSpring/00-ReactSpringExample';
+import FramerMotionExample from './components/FramerMotion/00-FramerMotionExample';
+
+// import ReactSpringExample from './components/ReactSpring/00-ReactSpringExample';
 
 // import TailwindCSSExample from './components/TailwindCSS/00-TailwindCSSExample';
 
@@ -20,7 +22,8 @@ import ReactSpringExample from './components/ReactSpring/00-ReactSpringExample';
 function App() {
   return (
     <>
-      <ReactSpringExample />
+      <FramerMotionExample />
+      {/* <ReactSpringExample /> */}
       {/* <TailwindCSSExample /> */}
       {/* <MeterialUIExample /> */}
       {/* <ReactBootstrapExample /> */}
