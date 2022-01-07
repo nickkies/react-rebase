@@ -1,6 +1,8 @@
 // import './App.css';
 
-import MeterialUIExample from './components/MeterialUI/00-MeterialUIExample';
+import TailwindCSSExample from './components/TailwindCSS/00-TailwindCSSExample';
+
+// import MeterialUIExample from './components/MeterialUI/00-MeterialUIExample';
 
 // import 'onsenui/css/onsenui.css';
 // import 'onsenui/css/onsen-css-components.css';
@@ -16,7 +18,8 @@ import MeterialUIExample from './components/MeterialUI/00-MeterialUIExample';
 function App() {
   return (
     <>
-      <MeterialUIExample />
+      <TailwindCSSExample />
+      {/* <MeterialUIExample /> */}
       {/* <ReactBootstrapExample /> */}
       {/* <ReactSemanticUIExample /> */}
       {/* <AntDesignExample /> */}
