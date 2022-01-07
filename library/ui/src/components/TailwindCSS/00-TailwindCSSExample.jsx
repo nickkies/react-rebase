@@ -1,5 +1,10 @@
 import React from 'react';
+import Fundamentals from './01-Fundamentals';
 
 export default function TailwindCSSExample() {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
+  return (
+    <>
+      <Fundamentals />
+    </>
+  );
 }
