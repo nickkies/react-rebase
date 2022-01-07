@@ -7,6 +7,7 @@ import ThemeExample from './02-ThemeExample';
 import ButtonExample from './03-ButtonExample';
 import CheckboxExample from './04-CheckboxExample';
 import DrawerExample from './05-DrawerExample';
+import StepperExample from './06-StepperExample';
 
 export default function MeterialUIExample() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -24,7 +25,7 @@ export default function MeterialUIExample() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
+      <StepperExample />
       <DrawerExample />
       <CheckboxExample />
       <ButtonExample />
