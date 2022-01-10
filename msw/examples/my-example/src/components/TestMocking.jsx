@@ -26,12 +26,23 @@ export default function TestMocking() {
       .catch((error) => setError(error))
   }
 
+  const handleClick2 = () => {
+    fetch('/login')
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        console.log(JSON.stringify(json))
+      })
+  }
+
   if (error) {
     return <p>{error}</p>
   }
   return (
     <div>
       <button onClick={handleClick}>데이터 가져오기</button>
+      <button onClick={handleClick2}>데이터 가져오기2</button>
       {data && (
         <ul>
           {data.people.map(({ name, age }) => (
