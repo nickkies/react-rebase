@@ -38,3 +38,9 @@
 > 6. Tailwindcss
 > 7. React spring
 > 8. Framer Motion
+
+- ### msw
+  > Mock Service Worker
+  > 데이터 모킹 라이브러리
+  >
+  > 1. my-example
