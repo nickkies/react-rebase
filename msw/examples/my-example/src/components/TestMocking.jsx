@@ -9,7 +9,7 @@ const Item = ({ name, age }) => {
 }
 
 const url =
-  'https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json'
+  'https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json?id=react'
 
 export default function TestMocking() {
   const [data, setData] = useState(null)
@@ -32,7 +32,8 @@ export default function TestMocking() {
         return response.json()
       })
       .then((json) => {
-        console.log(JSON.stringify(json))
+        console.log(json)
+        setData(json.data)
       })
   }
 
