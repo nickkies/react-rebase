@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { action } from 'mobx';
+import { action, runInAction } from 'mobx';
 
 const TodoList = observer(({ store }) => {
   const onNewTodo = () => {
@@ -14,9 +14,12 @@ const TodoList = observer(({ store }) => {
   };
 
   const load = () => {
-    action(() => {
+    // action(() => {
+    //   store.pendingRequests++;
+    // })();
+    runInAction(() => {
       store.pendingRequests++;
-    })();
+    });
     setTimeout(
       action(() => {
         store.addTodo('Random Todo ' + Math.random());
