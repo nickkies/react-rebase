@@ -1,5 +1,4 @@
 import './App.css';
-import Counter2 from './components/Counter2';
 import Counter from './features/counter/Counter';
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
       <br />
       <br />
       <br />
-      <Counter2 />
+      {/* <Counter2 /> */}
     </div>
   );
 }
