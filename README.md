@@ -40,7 +40,17 @@
 > 8. Framer Motion
 
 - ### msw
-  > Mock Service Worker
-  > 데이터 모킹 라이브러리
-  >
-  > 1. my-example
+
+> Mock Service Worker
+> 데이터 모킹 라이브러리
+>
+> 1. my-example
+
+- ### state-management
+
+> 상태관리 라이브러리
+>
+> 1. Redux
+> 2. Mobx
+> 3. Recoil
+> 4. Zustand
