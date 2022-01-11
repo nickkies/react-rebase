@@ -19,37 +19,43 @@ export const handlers = [
       const originalResponseData = await originalResponse.json()
 
       return res(
+        // Send a valid HTTP status code
+        ctx.status(403),
+        // And a response body, if necessary
         ctx.json({
-          data: {
-            people: [
-              ...originalResponseData.data.people,
-              {
-                name: 'nick',
-                age: 135,
-              },
-              {
-                name: id,
-                age: 13,
-              },
-              {
-                name: 'cindy',
-                age: 15,
-              },
-              {
-                name: 'judy',
-                age: 25,
-              },
-              {
-                name: 'marry',
-                age: 64,
-              },
-              {
-                name: 'tommy',
-                age: 109,
-              },
-            ],
-          },
+          errorMessage: 'Data not found',
         }),
+        // ctx.json({
+        //   data: {
+        //     people: [
+        //       ...originalResponseData.data.people,
+        //       {
+        //         name: 'nick',
+        //         age: 135,
+        //       },
+        //       {
+        //         name: id,
+        //         age: 13,
+        //       },
+        //       {
+        //         name: 'cindy',
+        //         age: 15,
+        //       },
+        //       {
+        //         name: 'judy',
+        //         age: 25,
+        //       },
+        //       {
+        //         name: 'marry',
+        //         age: 64,
+        //       },
+        //       {
+        //         name: 'tommy',
+        //         age: 109,
+        //       },
+        //     ],
+        //   },
+        // }),
       )
     },
   ),

@@ -13,7 +13,7 @@ const url =
 
 export default function TestMocking() {
   const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState('')
 
   const handleClick = () => {
     fetch(url)
@@ -21,9 +21,14 @@ export default function TestMocking() {
         return response.json()
       })
       .then((json) => {
+        if (json.errorMessage) {
+          throw new Error(json.errorMessage)
+        }
         setData(json.data)
       })
-      .catch((error) => setError(error))
+      .catch((error) => {
+        setError(error.message)
+      })
   }
 
   const handleClick2 = () => {
@@ -32,7 +37,6 @@ export default function TestMocking() {
         return response.json()
       })
       .then((json) => {
-        console.log(json)
         setData(json.data)
       })
   }
@@ -40,6 +44,7 @@ export default function TestMocking() {
   if (error) {
     return <p>{error}</p>
   }
+
   return (
     <div>
       <button onClick={handleClick}>데이터 가져오기</button>
