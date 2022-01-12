@@ -29,6 +29,10 @@ const TodoList = observer(({ store }) => {
     );
   };
 
+  const fetchTodo = () => {
+    store.fetchData();
+  };
+
   return (
     <div>
       {store.report}
@@ -42,6 +46,7 @@ const TodoList = observer(({ store }) => {
       <small> (double-click a todo to edit)</small>
       <button onClick={run}>run code</button>
       <button onClick={load}>load data</button>
+      <button onClick={fetchTodo}>fetch data</button>
     </div>
   );
 });
