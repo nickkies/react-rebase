@@ -1,7 +1,13 @@
 import React from 'react';
-import { atom, selector, selectorFamily, useRecoilValue } from 'recoil';
+import {
+  // atom,
+  // selector,
+  selectorFamily,
+  // useRecoilValue,
+  useRecoilValueLoadable,
+} from 'recoil';
 import axios from 'axios';
-import ErrorBoundary from './ErrorBoundary';
+// import ErrorBoundary from './ErrorBoundary';
 
 // const currentUserIDState = atom({
 //   key: 'CurrentUserID',
@@ -38,16 +44,27 @@ const userNameQuery = selectorFamily({
 });
 
 function CurrentUserUser() {
-  const userName = useRecoilValue(userNameQuery(2));
-  return <div>{userName}</div>;
+  // const userName = useRecoilValue(userNameQuery(2));
+  // return <div>{userName}</div>;
+  const userName = useRecoilValueLoadable(userNameQuery(1));
+
+  switch (userName.state) {
+    case 'loading':
+      return <div>loading...</div>;
+    case 'hasValue':
+      return <div>{userName.contents}</div>;
+    default:
+      // hasError
+      return <h1>Something Wrong</h1>;
+  }
 }
 
 export default function CurrentUserInfo() {
   return (
-    <ErrorBoundary>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <CurrentUserUser />
-      </React.Suspense>
-    </ErrorBoundary>
+    // <ErrorBoundary>
+    //   <React.Suspense fallback={<div>Loading...</div>}>
+    <CurrentUserUser />
+    //   </React.Suspense>
+    // </ErrorBoundary>
   );
 }
