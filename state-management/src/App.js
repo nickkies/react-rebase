@@ -1,4 +1,5 @@
 import './App.css';
+import CharacterCounter from './components/ZustandExample/CharacterCounter';
 // import { RecoilRoot } from 'recoil';
 import Text from './components/ZustandExample/Text';
 // import FontButton from './components/RecoilExample/FontButton';
@@ -14,6 +15,7 @@ import Text from './components/ZustandExample/Text';
 function App() {
   return (
     <div className='App'>
+      <CharacterCounter />
       <Text />
       {/* <RecoilRoot>
         <CurrentUserInfo />
