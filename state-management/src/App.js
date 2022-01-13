@@ -3,6 +3,7 @@ import { RecoilRoot } from 'recoil';
 import FontButton from './components/RecoilExample/FontButton';
 import Text from './components/RecoilExample/Text';
 import CharacterCounter from './components/RecoilExample/CharacterCounter';
+import TodoList from './components/RecoilExample/Todo/TodoList';
 // import TodoList from './components/TodoList';
 // import { observableTodoStore } from './app/ObservableMobxStore';
 // import MobxExample from './components/MobxExample';
@@ -15,6 +16,8 @@ function App() {
         <FontButton />
         <Text />
         <CharacterCounter />
+
+        <TodoList />
       </RecoilRoot>
       {/* <TodoList store={observableTodoStore} /> */}
       {/* <MobxExample /> */}
