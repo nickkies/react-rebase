@@ -1,6 +1,7 @@
 import React from 'react';
 import { atom, selector, useRecoilValue } from 'recoil';
 import axios from 'axios';
+import ErrorBoundary from './ErrorBoundary';
 
 const currentUserIDState = atom({
   key: 'CurrentUserID',
@@ -34,8 +35,10 @@ function CurrentUserUser() {
 
 export default function CurrentUserInfo() {
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <CurrentUserUser />
-    </React.Suspense>
+    <ErrorBoundary>
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <CurrentUserUser />
+      </React.Suspense>
+    </ErrorBoundary>
   );
 }
