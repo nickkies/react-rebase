@@ -26,3 +26,23 @@ export const filteredTodoListState = selector({
     }
   },
 });
+
+export const todoListStatsState = selector({
+  key: 'todoListStatsState',
+  get: ({ get }) => {
+    const todoList = get(todoListState);
+    const totalNum = todoList.concat.length;
+    const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
+    const totalUncompletedNum = todoList.filter(
+      (item) => !item.isComplete
+    ).length;
+    const percentCompleted = totalNum === 0 ? 0 : totalCompletedNum / totalNum;
+
+    return {
+      totalNum,
+      totalCompletedNum,
+      totalUncompletedNum,
+      percentCompleted,
+    };
+  },
+});
