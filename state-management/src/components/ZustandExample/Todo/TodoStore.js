@@ -1,0 +1,37 @@
+import create from 'zustand';
+
+export const useStore = create((set, get) => ({
+  todoListState: [],
+  setTodoListState: (list) => set({ todoListState: list }),
+  todoListFilterState: 'Show All',
+  setTodoListFilterState: (filter) => set({ todoListFilterState: filter }),
+  filteredTodoListState: () => {
+    const filter = get().todoListFilterState;
+    const list = get().todoListState;
+
+    switch (filter) {
+      case 'Show Completed':
+        return list.filter((item) => item.isComplete);
+      case 'Show Uncompleted':
+        return list.filter((item) => !item.isComplete);
+      default:
+        return list;
+    }
+  },
+  todoListStatsState: () => {
+    const todoList = get().todoListState;
+    const totalNum = todoList.concat.length;
+    const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
+    const totalUncompletedNum = todoList.filter(
+      (item) => !item.isComplete
+    ).length;
+    const percentCompleted = totalNum === 0 ? 0 : totalCompletedNum / totalNum;
+
+    return {
+      totalNum,
+      totalCompletedNum,
+      totalUncompletedNum,
+      percentCompleted,
+    };
+  },
+}));

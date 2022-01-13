@@ -2,6 +2,7 @@ import './App.css';
 import CharacterCounter from './components/ZustandExample/CharacterCounter';
 // import { RecoilRoot } from 'recoil';
 import Text from './components/ZustandExample/Text';
+import TodoList from './components/ZustandExample/Todo/TodoList';
 // import FontButton from './components/RecoilExample/FontButton';
 // import Text from './components/RecoilExample/Text';
 // import CharacterCounter from './components/RecoilExample/CharacterCounter';
@@ -15,6 +16,7 @@ import Text from './components/ZustandExample/Text';
 function App() {
   return (
     <div className='App'>
+      <TodoList />
       <CharacterCounter />
       <Text />
       {/* <RecoilRoot>
