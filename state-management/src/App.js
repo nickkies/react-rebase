@@ -1,6 +1,7 @@
 import './App.css';
 import CharacterCounter from './components/ZustandExample/CharacterCounter';
 import CurrentUserInfo from './components/ZustandExample/CurrentUserInfo';
+import Scratches from './components/ZustandExample/Scratches';
 // import { RecoilRoot } from 'recoil';
 import Text from './components/ZustandExample/Text';
 import TodoList from './components/ZustandExample/Todo/TodoList';
@@ -17,6 +18,7 @@ import TodoList from './components/ZustandExample/Todo/TodoList';
 function App() {
   return (
     <div className='App'>
+      <Scratches />
       <CurrentUserInfo />
       <TodoList />
       <CharacterCounter />
