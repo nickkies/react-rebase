@@ -1,8 +1,8 @@
 import './App.css';
 import { RecoilRoot } from 'recoil';
-import FontButton from './components/RecoilExample/FontButton';
-import Text from './components/RecoilExample/Text';
-import CharacterCounter from './components/RecoilExample/CharacterCounter';
+// import FontButton from './components/RecoilExample/FontButton';
+// import Text from './components/RecoilExample/Text';
+// import CharacterCounter from './components/RecoilExample/CharacterCounter';
 import TodoList from './components/RecoilExample/Todo/TodoList';
 // import TodoList from './components/TodoList';
 // import { observableTodoStore } from './app/ObservableMobxStore';
@@ -13,11 +13,11 @@ function App() {
   return (
     <div className='App'>
       <RecoilRoot>
-        <FontButton />
-        <Text />
-        <CharacterCounter />
-
         <TodoList />
+
+        {/* <FontButton />
+        <Text />
+        <CharacterCounter /> */}
       </RecoilRoot>
       {/* <TodoList store={observableTodoStore} /> */}
       {/* <MobxExample /> */}
