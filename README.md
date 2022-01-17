@@ -47,9 +47,17 @@
   > 1. my-example
 
 - ### state-management
+
   > 상태관리 라이브러리
   >
   > 1. Redux
   > 2. Mobx
   > 3. Recoil
   > 4. Zustand
+
+- ### data-fetching
+
+  > 데이터 페칭 라이브러리
+  >
+  > 1. SWR
+  > 2. React-Query
