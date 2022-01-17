@@ -1,7 +1,12 @@
 import './App.css';
+import Profile from './components/swr/Profile';
 
 function App() {
-  return <div className='App'>Hi, there</div>;
+  return (
+    <div className='App'>
+      <Profile />
+    </div>
+  );
 }
 
 export default App;
