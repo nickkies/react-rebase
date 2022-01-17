@@ -5,9 +5,13 @@ import axios from 'axios';
 const fetcher = (...args) => axios.get(...args).then((res) => res.data);
 
 function useUser(id) {
-  const { data, error } = useSWR(`/api/user/${id}`, fetcher, {
-    refreshInterval: 1000,
-  });
+  const { data, error } = useSWR(
+    `/api/user/${id}`,
+    fetcher
+    // , {
+    //   refreshInterval: 1000,
+    // }
+  );
 
   return {
     user: data,
@@ -40,7 +44,7 @@ function Profile({ id }) {
   );
 }
 
-function Avator({ id }) {
+export function Avator({ id }) {
   const { user, isLoading, isError } = useUser(id);
 
   if (isError) return <div>failed to load (Avator)</div>;
