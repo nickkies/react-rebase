@@ -4,11 +4,11 @@ export const handlers = [
   rest.get('http://localhost:3000/api/user/:userId', async (req, res, ctx) => {
     const { userId } = req.params;
 
-    // return res(
-    //   ctx.json({
-    //     name: 'Nick' + userId,
-    //   })
-    // );
-    return res(ctx.status(400));
+    return res(
+      ctx.json({
+        name: 'Nick' + userId,
+      })
+    );
+    // return res(ctx.status(400));
   }),
 ];
