@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import Example from './components/ReactQuery/Example';
 import QuickStart from './components/ReactQuery/QuickStart';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import Pagination from './components/ReactQuery/Pagination';
 
 const queryClient = new QueryClient();
 
@@ -15,8 +16,9 @@ function App() {
   return (
     <div className='App'>
       <QueryClientProvider client={queryClient}>
-        <Example />
-        <QuickStart />
+        <Pagination />
+        {/* <Example />
+        <QuickStart /> */}
 
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
