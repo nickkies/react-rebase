@@ -28,12 +28,26 @@ export default function Launches({ data }) {
   );
 }
 
-// SSR render
-export async function getServerSideProps() {
+// SSG
+export async function getStaticProps() {
   const res = await fetch('https://api.spacexdata.com/v3/launches');
   const data = await res.json();
+
+  console.log('getStaticProps');
 
   return {
     props: { data }, // will be passed to the page component as props
   };
 }
+
+// SSR render
+// export async function getServerSideProps() {
+//   const res = await fetch('https://api.spacexdata.com/v3/launches');
+//   const data = await res.json();
+
+//   console.log('getServerSideProps');
+
+//   return {
+//     props: { data }, // will be passed to the page component as props
+//   };
+// }
