@@ -7,6 +7,7 @@ import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Example from './components/ReactQuery/Example';
 import QuickStart from './components/ReactQuery/QuickStart';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,8 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Example />
         <QuickStart />
+
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
       {/* <Pagination />
       <Mutate /> */}
