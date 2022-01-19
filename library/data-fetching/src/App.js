@@ -5,10 +5,11 @@ import './App.css';
 // import Cache from './components/swr/Cache';
 // import Profile from './components/swr/Profile';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Example from './components/ReactQuery/Example';
-import QuickStart from './components/ReactQuery/QuickStart';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import Pagination from './components/ReactQuery/Pagination';
+// import Example from './components/ReactQuery/Example';
+// import QuickStart from './components/ReactQuery/QuickStart';
+// import Pagination from './components/ReactQuery/Pagination';
+import InfiniteQueries from './components/ReactQuery/InfiniteQueries';
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,8 @@ function App() {
   return (
     <div className='App'>
       <QueryClientProvider client={queryClient}>
-        <Pagination />
+        <InfiniteQueries />
+        {/* <Pagination /> */}
         {/* <Example />
         <QuickStart /> */}
 

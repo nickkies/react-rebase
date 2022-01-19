@@ -23,6 +23,7 @@ export const handlers = [
           { id: `5 ${pageIndex}`, name: `nick 5-${pageIndex}` },
         ],
         hasMore: pageIndex < 4,
+        nextCursor: pageIndex < 4 ? parseInt(pageIndex + 1) : false,
       })
     );
     // return res(ctx.status(400));
