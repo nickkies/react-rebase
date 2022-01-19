@@ -61,3 +61,7 @@
   >
   > 1. SWR
   > 2. React-Query
+
+## next-app
+
+The React Framework for Production
