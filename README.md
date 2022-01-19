@@ -72,4 +72,4 @@ The React Framework for Production
 
 - ### nextjs-blog
 
-  > Learn Next.js
+  > Tutorial
