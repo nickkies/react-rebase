@@ -6,6 +6,7 @@ import './App.css';
 // import Profile from './components/swr/Profile';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Example from './components/ReactQuery/Example';
+import QuickStart from './components/ReactQuery/QuickStart';
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ function App() {
     <div className='App'>
       <QueryClientProvider client={queryClient}>
         <Example />
+        <QuickStart />
       </QueryClientProvider>
       {/* <Pagination />
       <Mutate /> */}
