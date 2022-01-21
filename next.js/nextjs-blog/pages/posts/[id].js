@@ -1,6 +1,7 @@
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticProps({ params }) {
@@ -27,12 +28,20 @@ export async function getStaticPaths() {
   //   }
   // ]
   return {
+    // paths: [{ params: { id: 'ssg-ssr' } }],
+    // fallback: true,
     paths,
     fallback: false,
   };
 }
 
 export default function Post({ postData }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Layout>
       <Head>
