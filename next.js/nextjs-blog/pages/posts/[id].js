@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import utilStyles from '../../styles/utils.module.css';
+import { useEffect } from 'react';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -37,6 +38,17 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
   const router = useRouter();
+
+  useEffect(() => {
+    const getText = async () => {
+      const res = await fetch('/api/hello');
+      const data = await res.json();
+
+      alert(data.text);
+    };
+
+    getText();
+  }, []);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
