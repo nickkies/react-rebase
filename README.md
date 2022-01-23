@@ -72,4 +72,5 @@ The React Framework for Production
 
 - ### nextjs-blog
 
-  > Tutorial
+  > 1. Tutorial
+  > 2. Dosc
