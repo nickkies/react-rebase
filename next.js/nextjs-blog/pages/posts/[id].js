@@ -31,10 +31,22 @@ export async function getStaticPaths() {
   return {
     // paths: [{ params: { id: 'ssg-ssr' } }],
     // fallback: true,
-    paths,
-    fallback: false,
+    // paths,
+    // fallback: false,
+    paths: [{ params: { id: 'ssg-ssr' } }],
+    fallback: 'blocking',
   };
 }
+
+// export async function getServerSideProps({ params, req }) {
+//   console.log(JSON.stringify(req.cookies));
+//   const postData = await getPostData(params.id);
+//   return {
+//     props: {
+//       postData,
+//     },
+//   };
+// }
 
 export default function Post({ postData }) {
   const router = useRouter();
