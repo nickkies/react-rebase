@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "test": "jest --watch"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -15,6 +16,11 @@
     "remark-html": "^15.0.1"
   },
   "devDependencies": {
-    "cypress": "^9.3.1"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.4.6",
+    "cypress": "^9.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.7"
   }
 }
