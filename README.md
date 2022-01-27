@@ -74,3 +74,34 @@ The React Framework for Production
 
   > 1. Tutorial
   > 2. Dosc
+
+---
+
+######TypeScript 사용 시작~~
+
+## play-ground
+
+> 주요 기능들 연습
+
+- ### common-ui
+
+  > 많이 사용하는 ui
+  >
+  > 1. skeleton
+  > 2. carousel
+  > 3. pagination
+  > 4. modal-navigation
+  > 5. infinite-scroll-by-scroll
+  > 6. infinite-scroll-by-intersection-observer
+
+- ### recoil-todo-list
+
+  > recoil을 활용한 todo list
+
+- ### react-query-pokemon
+
+  > react-query를 이용한 포켓몬 도감
+
+- ### forms
+
+  > Complex React hook form
