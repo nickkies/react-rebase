@@ -79,7 +79,7 @@ The React Framework for Production
 
 ######TypeScript 사용 시작~~
 
-## play-ground
+## playground
 
 > 주요 기능들 연습
 
