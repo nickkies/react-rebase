@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SkeletonApp from './SkeletonApp';
+// import SkeletonApp from './SkeletonApp';
+import CarouselApp from './CarouselApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SkeletonApp />
+    <CarouselApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
