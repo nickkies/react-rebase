@@ -1,5 +1,6 @@
 import Skeleton from './components/skeleton/Skeleton';
 import styled from '@emotion/styled/macro';
+import { useEffect, useState } from 'react';
 
 const Base = styled.div`
   display: grid;
@@ -45,6 +46,19 @@ const Description = styled.p`
   font-size: 24px;
 `;
 
+const Placeholder: React.FC = () => (
+  <Container>
+    <ImageWrapper>
+      <Skeleton width={320} height={220} />
+    </ImageWrapper>
+    <Info>
+      <Skeleton width={150} height={29} rounded />
+      <div style={{ height: '8px' }} />
+      <Skeleton width={200} height={19} rounded />
+    </Info>
+  </Container>
+);
+
 const Item: React.FC = () => {
   return (
     <Container>
@@ -52,7 +66,7 @@ const Item: React.FC = () => {
         <Image src='https://images.unsplash.com/photo-1637734433731-621aca1c8cb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=404&q=80' />
       </ImageWrapper>
       <Info>
-        <Title></Title>
+        <Title>타이틀</Title>
         <Description>testTest테스트</Description>
       </Info>
     </Container>
@@ -60,11 +74,17 @@ const Item: React.FC = () => {
 };
 
 function App() {
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+
   return (
     <Base>
-      {Array.from({ length: 25 }).map((_, idx) => (
-        <Item key={idx} />
-      ))}
+      {loading
+        ? Array.from({ length: 25 }).map((_, idx) => <Placeholder key={idx} />)
+        : Array.from({ length: 25 }).map((_, idx) => <Item key={idx} />)}
     </Base>
   );
 }

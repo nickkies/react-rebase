@@ -53,7 +53,7 @@ const Skeleton: React.FC<Props> = ({
   count,
   unit = 'px',
   animation = true,
-  color = '#F4F4F4',
+  color = '#6b6a6a',
   style,
 }) => {
   // count 4 => '----'
@@ -63,7 +63,17 @@ const Skeleton: React.FC<Props> = ({
   );
 
   return (
-    <Base>
+    <Base
+      width={width}
+      height={height}
+      circle={circle}
+      rounded={rounded}
+      count={count}
+      unit={unit}
+      animation={animation}
+      color={color}
+      style={style}
+    >
       <Content>{content}</Content>
     </Base>
   );
