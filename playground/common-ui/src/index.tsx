@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import SkeletonApp from './SkeletonApp';
 // import CarouselApp from './CarouselApp';
-import Pagination from './components/Pagination/Pagination';
+import PaginationApp from './PaginationApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Pagination />
+    <PaginationApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
