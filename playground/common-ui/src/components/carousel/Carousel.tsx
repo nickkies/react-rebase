@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
@@ -81,6 +81,17 @@ const banners = [
 
 const Carousel: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!isFocus) {
+      const intervalId: NodeJS.Timeout = setInterval(handleNext, 3000);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [isFocus]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % banners.length);
@@ -94,8 +105,16 @@ const Carousel: React.FC = () => {
     setActiveIndex(idx);
   };
 
+  const handleMouseEnter = () => {
+    setIsFocus(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsFocus(false);
+  };
+
   return (
-    <Base>
+    <Base onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Container>
         <ArrowButton pos='left' onClick={handlePrev}>
           <RiArrowDropLeftLine />
