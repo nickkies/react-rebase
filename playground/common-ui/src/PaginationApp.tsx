@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Pagination from './components/pagination/Pagination';
 
 interface Airline {
   id: number;
@@ -50,6 +51,10 @@ function App() {
     fetch();
   }, [page]);
 
+  const handlePageChange = (currentPage: number): void => {
+    setpage(currentPage);
+  };
+
   return (
     <div>
       <ul>
@@ -57,6 +62,11 @@ function App() {
           <li key={_id}>{name}</li>
         ))}
       </ul>
+      <Pagination
+        count={totalPages}
+        page={page}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }

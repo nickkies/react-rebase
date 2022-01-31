@@ -3,7 +3,7 @@ interface Props {
   page: number;
   onPageChange: (page: number) => void;
   disabled?: boolean;
-  siblingCount: number;
+  siblingCount?: number;
   boundaryCount?: number;
 }
 
