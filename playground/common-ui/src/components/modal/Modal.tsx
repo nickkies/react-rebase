@@ -30,7 +30,7 @@ const Dim = styled.div`
 `;
 
 const Container = styled.div`
-  max-widht: 456px;
+  max-width: 456px;
   position: relative;
   width: 100%;
 `;
