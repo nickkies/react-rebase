@@ -1,5 +1,7 @@
 import styled from '@emotion/styled/macro';
 import Portal from './Portal';
+import { CSSTransition } from 'react-transition-group';
+import './modal.css';
 
 interface Props {
   isOpen: boolean;
@@ -37,16 +39,14 @@ const Container = styled.div`
 
 const Modal: React.FC<Props> = ({ children, isOpen, onClose, selector }) => {
   return (
-    <>
-      {isOpen && (
-        <Portal selector={selector}>
-          <Overlay>
-            <Dim onClick={onClose} />
-            <Container>{children}</Container>
-          </Overlay>
-        </Portal>
-      )}
-    </>
+    <CSSTransition in={isOpen} timeout={300} classNames='modal' unmountOnExit>
+      <Portal selector={selector}>
+        <Overlay>
+          <Dim onClick={onClose} />
+          <Container>{children}</Container>
+        </Overlay>
+      </Portal>
+    </CSSTransition>
   );
 };
 
