@@ -97,6 +97,9 @@ The React Framework for Production
 - ### recoil-todo-list
 
   > recoil을 활용한 todo list
+  >
+  > - 달력 형식의 todo list
+  > - 날짜마다 todo 생성 / 출력 / 목록 출력 / 삭제
 
 - ### react-query-pokemon
 
