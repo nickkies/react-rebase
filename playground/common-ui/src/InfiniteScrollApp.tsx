@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled/macro';
+import { throttle } from 'throttle-debounce';
 
 const Ul = styled.ul`
   overflow: hidden scroll;
@@ -78,16 +79,18 @@ function App() {
     }
   }, [isScrollBottom, isLast]);
 
-  const handleScroll = () => {
+  const handleScroll = throttle(1000, () => {
     const ref = listRef.current;
 
     if (ref) {
       const { scrollHeight, offsetHeight, scrollTop } = ref;
       const offset = 50;
 
+      console.log('trigger');
+
       setIsScrollBottom(scrollHeight - offsetHeight - scrollTop < offset);
     }
-  };
+  });
 
   return (
     <div>
