@@ -1,4 +1,5 @@
 import styled from '@emotion/styled/macro';
+import { useMemo, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
 const Header = styled.div`
@@ -110,6 +111,49 @@ const MONTHS = [
 ];
 
 const Calendar: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
+  const { year, month, firstDay, lastDay } = useMemo(() => {
+    const year = selectedDate.getFullYear();
+    const month = selectedDate.getMonth();
+
+    return {
+      year,
+      month,
+      firstDay: new Date(year, month, 1),
+      lastDay: new Date(year, month + 1, 0),
+    };
+  }, [selectedDate]);
+
+  const pad = () =>
+    Array.from({ length: firstDay.getDay() }, (_, i: number) => (
+      <TableData key={`pad_${i}`} />
+    ));
+
+  const range = () =>
+    Array.from({ length: lastDay.getDate() }, (_, i: number) => {
+      const thisDay = new Date(year, month, i + 1);
+      const today = new Date();
+
+      return (
+        <TableData key={i}>
+          <DisplayDate isToday={true} isSelected={true}>
+            {new Date(year, month, i + 1).getDate()}
+          </DisplayDate>
+        </TableData>
+      );
+    });
+
+  const render = () => {
+    const items = [...pad(), ...range()];
+
+    const weeks = Math.ceil(items.length / 7);
+
+    return Array.from({ length: weeks }, (_, week) => (
+      <tr key={`week_${week}`}>{items.slice(week * 7, week * 7 + 7)}</tr>
+    ));
+  };
+
   return (
     <Base>
       <Header>
@@ -117,7 +161,7 @@ const Calendar: React.FC = () => {
           <ArrowButton pos='left'>
             <BiChevronLeft />
           </ArrowButton>
-          <Title>{MONTHS[0]}</Title>
+          <Title>{`${MONTHS[month]} ${year}`}</Title>
           <ArrowButton pos='right'>
             <BiChevronRight />
           </ArrowButton>
@@ -133,100 +177,7 @@ const Calendar: React.FC = () => {
             ))}
           </tr>
         </TableHeader>
-        <TableBody>
-          <tr>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-          </tr>
-          <tr>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-          </tr>
-          <tr>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-          </tr>
-          <tr>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-            <TableData>
-              <DisplayDate>1</DisplayDate>
-            </TableData>
-          </tr>
-        </TableBody>
+        <TableBody>{render()}</TableBody>
       </Table>
     </Base>
   );
