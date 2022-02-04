@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { useMemo, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import { isSameDay } from '../utils';
 
 const Header = styled.div`
   width: 100%;
@@ -136,9 +137,12 @@ const Calendar: React.FC = () => {
       const today = new Date();
 
       return (
-        <TableData key={i}>
-          <DisplayDate isToday={true} isSelected={true}>
-            {new Date(year, month, i + 1).getDate()}
+        <TableData key={i} onClick={() => selectDate(thisDay)}>
+          <DisplayDate
+            isSelected={isSameDay(selectedDate, thisDay)}
+            isToday={isSameDay(today, thisDay)}
+          >
+            {thisDay.getDate()}
           </DisplayDate>
         </TableData>
       );
@@ -154,15 +158,23 @@ const Calendar: React.FC = () => {
     ));
   };
 
+  const selectDate = (date: Date) => {
+    setSelectedDate(date);
+  };
+
+  const changeMonth = (num: number) => {
+    selectDate(new Date(selectedDate.setMonth(selectedDate.getMonth() + num)));
+  };
+
   return (
     <Base>
       <Header>
         <ButtonContainer>
-          <ArrowButton pos='left'>
+          <ArrowButton pos='left' onClick={() => changeMonth(-1)}>
             <BiChevronLeft />
           </ArrowButton>
           <Title>{`${MONTHS[month]} ${year}`}</Title>
-          <ArrowButton pos='right'>
+          <ArrowButton pos='right' onClick={() => changeMonth(1)}>
             <BiChevronRight />
           </ArrowButton>
         </ButtonContainer>
