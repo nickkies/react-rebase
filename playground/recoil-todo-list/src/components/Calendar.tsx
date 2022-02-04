@@ -1,7 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { useMemo, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import { isSameDay } from '../utils';
+import { isSameDay, clacMonth } from '../utils';
 
 const Header = styled.div`
   width: 100%;
@@ -163,7 +163,7 @@ const Calendar: React.FC = () => {
   };
 
   const changeMonth = (num: number) => {
-    selectDate(new Date(selectedDate.setMonth(selectedDate.getMonth() + num)));
+    setSelectedDate((prev) => clacMonth(prev, num));
   };
 
   return (
