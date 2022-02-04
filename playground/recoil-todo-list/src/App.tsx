@@ -1,7 +1,12 @@
 import { RecoilRoot } from 'recoil';
+import Calendar from './components/Calendar';
 
 function App() {
-  return <RecoilRoot>Hi there</RecoilRoot>;
+  return (
+    <RecoilRoot>
+      <Calendar />
+    </RecoilRoot>
+  );
 }
 
 export default App;
