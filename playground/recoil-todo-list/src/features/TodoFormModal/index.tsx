@@ -44,7 +44,7 @@ const TodoFormModal: React.FC = () => {
   };
 
   return (
-    <Modal isOpen={true} onClose={handleClose}>
+    <Modal isOpen={isOpen} onClose={handleClose}>
       <ModalBody>
         <Card>
           <Date>2022-02-02</Date>
