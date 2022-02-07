@@ -73,7 +73,7 @@ const TodoStatisticsModal: React.FC = () => {
   const handleClose = () => setIsOpen(false);
 
   return (
-    <Modal isOpen={true} onClose={handleClose}>
+    <Modal isOpen={isOpen} onClose={handleClose}>
       <Container>
         <Card>
           <Date>2022-02-07</Date>
