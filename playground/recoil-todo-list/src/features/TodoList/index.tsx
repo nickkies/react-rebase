@@ -4,7 +4,7 @@ import styled from '@emotion/styled/macro';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { Todo, selectedTodoState } from './atom';
-import { todoStatiscModalOpenState } from '../TodoStatisticsModal/atom';
+import { todoStatisticsModalOpenState } from '../TodoStatisticsModal/atom';
 
 const EtcItem = styled.li`
   padding: 2px 4px;
@@ -14,7 +14,6 @@ const EtcItem = styled.li`
 `;
 
 const TodoItem = styled.li<{ done?: boolean; selected?: boolean }>`
-  max-width: 100px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,7 +51,7 @@ const MAX_TODO_LIST_LENGTH = 3;
 const TodoList: React.FC<Props> = ({ items }) => {
   const [selectedTodo, setSelectedTodo] = useRecoilState(selectedTodoState);
   const setTodoStatisticsModalOpen = useSetRecoilState(
-    todoStatiscModalOpenState
+    todoStatisticsModalOpenState
   );
 
   const handleClick = (e: React.SyntheticEvent<HTMLLIElement>, todo: Todo) => {

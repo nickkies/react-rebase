@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled/macro';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { HiOutlineTrash } from 'react-icons/hi';
 
-import { todoStatiscModalOpenState, todoStatisticsState } from './atom';
+import { todoStatisticsModalOpenState, todoStatisticsState } from './atom';
 import Modal from '../../components/Modal';
 import {
   filteredTodoListState,
@@ -76,7 +76,7 @@ const Card = styled.div`
 `;
 
 const TodoStatisticsModal: React.FC = () => {
-  const [isOpen, setIsOpen] = useRecoilState(todoStatiscModalOpenState);
+  const [isOpen, setIsOpen] = useRecoilState(todoStatisticsModalOpenState);
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const selectedDate = useRecoilValue(selectedDateState);

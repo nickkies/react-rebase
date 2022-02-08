@@ -1,7 +1,7 @@
 import { atom, atomFamily, selectorFamily } from 'recoil';
 import { filteredTodoListState } from '../TodoList/atom';
 
-export const todoStatiscModalOpenState = atom<boolean>({
+export const todoStatisticsModalOpenState = atom<boolean>({
   key: 'todoStatiscModalOpenState',
   default: false,
 });
