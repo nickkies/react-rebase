@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { Todo } from './atom';
+
+import { useRecoilState, useSetRecoilState } from 'recoil';
+
+import { Todo, selectedTodoState } from './atom';
+import { todoStatiscModalOpenState } from '../TodoStatisticsModal/atom';
 
 const EtcItem = styled.li`
   padding: 2px 4px;
@@ -45,17 +49,53 @@ interface Props {
 
 const MAX_TODO_LIST_LENGTH = 3;
 
-const TodoList: React.FC<Props> = ({ items }) => (
-  <Base>
-    {items.slice(0, MAX_TODO_LIST_LENGTH).map((item, index) => (
-      <TodoItem key={item.id} done={item.done}>
-        {item.content}
-      </TodoItem>
-    ))}
-    {items.length > MAX_TODO_LIST_LENGTH && (
-      <EtcItem>{`그 외 ${items.length - MAX_TODO_LIST_LENGTH}개...`}</EtcItem>
-    )}
-  </Base>
-);
+const TodoList: React.FC<Props> = ({ items }) => {
+  const [selectedTodo, setSelectedTodo] = useRecoilState(selectedTodoState);
+  const setTodoStatisticsModalOpen = useSetRecoilState(
+    todoStatiscModalOpenState
+  );
+
+  const handleClick = (e: React.SyntheticEvent<HTMLLIElement>, todo: Todo) => {
+    e.stopPropagation();
+
+    setSelectedTodo(
+      selectedTodo?.id === todo.id && selectedTodo.date === todo.date
+        ? null
+        : todo
+    );
+  };
+
+  const handleTodoStatisticsModalOpen = (
+    e: React.SyntheticEvent<HTMLLIElement>
+  ) => {
+    e.stopPropagation();
+
+    setTodoStatisticsModalOpen(true);
+  };
+
+  return (
+    <Base>
+      {items.slice(0, MAX_TODO_LIST_LENGTH).map((item, index) => (
+        <TodoItem
+          key={item.id}
+          done={item.done}
+          selected={
+            item.date === selectedTodo?.date && item.id === selectedTodo?.id
+          }
+          onClick={(e: React.SyntheticEvent<HTMLLIElement>) =>
+            handleClick(e, item)
+          }
+        >
+          {item.content}
+        </TodoItem>
+      ))}
+      {items.length > MAX_TODO_LIST_LENGTH && (
+        <EtcItem onClick={handleTodoStatisticsModalOpen}>
+          {`그 외 ${items.length - MAX_TODO_LIST_LENGTH}개...`}
+        </EtcItem>
+      )}
+    </Base>
+  );
+};
 
 export default TodoList;
