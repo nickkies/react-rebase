@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled/macro';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { HiOutlineTrash } from 'react-icons/hi';
 
+import { todoStatiscModalOpenState, todoStatisticsState } from './atom';
 import Modal from '../../components/Modal';
+import {
+  filteredTodoListState,
+  selectedDateState,
+  todoListState,
+} from '../TodoList/atom';
+import { getSimpleDateFormat } from '../../utils';
 
 const Container = styled.div`
   width: 100vw;
@@ -68,33 +76,42 @@ const Card = styled.div`
 `;
 
 const TodoStatisticsModal: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useRecoilState(todoStatiscModalOpenState);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
+
+  const selectedDate = useRecoilValue(selectedDateState);
+
+  const filteredTodoList = useRecoilValue(filteredTodoListState(selectedDate));
+  const statistics = useRecoilValue(todoStatisticsState(selectedDate));
 
   const handleClose = () => setIsOpen(false);
+
+  const removeTodo = (id: string): void => {
+    setTodoList(todoList.filter((todo) => todo.id !== id));
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose}>
       <Container>
         <Card>
-          <Date>2022-02-07</Date>
-          <Statistics>할 일 2개 남음</Statistics>
+          <Date>{getSimpleDateFormat(selectedDate)}</Date>
+          <Statistics>
+            할 일 {statistics.total - statistics.done}개 남음
+          </Statistics>
           <TodoList>
-            <TodoItem key={1}>
-              <Content>할 일 1</Content>
-              <TodoActions>
-                <TodoActionButton secondary onClick={() => {}}>
-                  <HiOutlineTrash />
-                </TodoActionButton>
-              </TodoActions>
-            </TodoItem>
-            <TodoItem key={2}>
-              <Content>할 일 2</Content>
-              <TodoActions>
-                <TodoActionButton secondary onClick={() => {}}>
-                  <HiOutlineTrash />
-                </TodoActionButton>
-              </TodoActions>
-            </TodoItem>
+            {filteredTodoList?.map((todo) => (
+              <TodoItem key={todo.id}>
+                <Content>{todo.content}</Content>
+                <TodoActions>
+                  <TodoActionButton
+                    secondary
+                    onClick={() => removeTodo(todo.id)}
+                  >
+                    <HiOutlineTrash />
+                  </TodoActionButton>
+                </TodoActions>
+              </TodoItem>
+            ))}
           </TodoList>
         </Card>
       </Container>
