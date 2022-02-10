@@ -104,6 +104,9 @@ The React Framework for Production
 - ### react-query-pokemon
 
   > react-query를 이용한 포켓몬 도감
+  >
+  > - 포켓몬 도감
+  > - 포켓몬 클릭시 상세페이지 (About / Stats / Evolution)
 
 - ### forms
 
