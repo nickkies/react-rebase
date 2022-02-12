@@ -16,12 +16,17 @@ type Params = {
 
 type Tab = 'about' | 'stats' | 'evolution';
 
-const Container = styled.section``;
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
 
-const TabsWrapper = styled.div``;
+const TabsWrapper = styled.div`
+  margin: 24px auto 0;
+`;
 
 const DetailPage: React.FC = () => {
-  const [selectedTab, SetSelectedTab] = useState<string>('about');
+  const [selectedTab, SetSelectedTab] = useState<Tab>('about');
 
   const { id } = useParams<Params>();
 
@@ -33,7 +38,11 @@ const DetailPage: React.FC = () => {
     <Container>
       <PokemonInfo id={id} />
       <TabsWrapper>
-        <Tabs onClick={handleTabClick} />
+        <Tabs
+          tab={selectedTab}
+          onClick={handleTabClick}
+          color={{ name: 'green', url: '//' }}
+        />
       </TabsWrapper>
       {selectedTab === 'about' && <About />}
       {selectedTab === 'stats' && <Stats />}
