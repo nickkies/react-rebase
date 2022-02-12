@@ -31,7 +31,6 @@ const DetailPage: React.FC = () => {
 
   return (
     <Container>
-      <br />
       <PokemonInfo id={id} />
       <TabsWrapper>
         <Tabs onClick={handleTabClick} />
