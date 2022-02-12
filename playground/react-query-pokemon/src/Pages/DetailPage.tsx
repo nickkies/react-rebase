@@ -22,6 +22,7 @@ const TabsWrapper = styled.div``;
 
 const DetailPage: React.FC = () => {
   const [selectedTab, SetSelectedTab] = useState<string>('about');
+
   const { id } = useParams<Params>();
 
   const handleTabClick = (tab: Tab) => {
@@ -30,9 +31,8 @@ const DetailPage: React.FC = () => {
 
   return (
     <Container>
-      id: {id}
       <br />
-      <PokemonInfo />
+      <PokemonInfo id={id} />
       <TabsWrapper>
         <Tabs onClick={handleTabClick} />
       </TabsWrapper>
