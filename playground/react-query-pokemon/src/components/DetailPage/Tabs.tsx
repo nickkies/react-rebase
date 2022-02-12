@@ -2,11 +2,11 @@ import styled from '@emotion/styled/macro';
 import { Color } from 'types';
 import { mapColorToHex } from 'utils';
 
-interface Props {
+type Props = {
   tab: 'about' | 'stats' | 'evolution';
   onClick: (tab: 'about' | 'stats' | 'evolution') => void;
   color?: Color;
-}
+};
 
 const List = styled.ul`
   display: flex;

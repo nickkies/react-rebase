@@ -1,6 +1,10 @@
 import styled from '@emotion/styled/macro';
 import { formatNumbering } from 'utils';
 
+type Props = {
+  id?: string;
+};
+
 const Base = styled.div<{ color?: string }>`
   display: flex;
   flex-direction: column;
@@ -79,7 +83,7 @@ const Image = styled.img`
   object-fit: contain;
 `;
 
-const PokemonInfo: React.FC<{ id?: string }> = ({ id }) => {
+const PokemonInfo: React.FC<Props> = ({ id }) => {
   return (
     <Base color='green'>
       <ImageWrapper>
