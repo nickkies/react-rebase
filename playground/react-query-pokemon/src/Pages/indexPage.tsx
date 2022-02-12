@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 
-import PokemonList from 'Components/PokemonList';
+import PokemonList from 'components/IndexPage/PokemonList';
 
 const Container = styled.div`
   padding: 12px 18px;

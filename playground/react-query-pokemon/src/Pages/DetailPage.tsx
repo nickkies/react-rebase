@@ -1,11 +1,14 @@
 import styled from '@emotion/styled/macro';
-import About from 'Components/About';
-import Evolution from 'Components/Evolution';
-import PokemonInfo from 'Components/PokemonInfo';
-import Stats from 'Components/Stats';
-import Tabs from 'Components/Tabs';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import {
+  PokemonInfo,
+  Tabs,
+  About,
+  Stats,
+  Evolution,
+} from 'components/DetailPage';
 
 type Params = {
   id: string;
