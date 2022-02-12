@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 import usePokemon from 'hooks/usePokemon';
 import { ListResponse } from 'types';
+import { formatNumbering } from 'utils';
 
 const Base = styled.div`
   margin-top: 24px;
@@ -58,12 +59,6 @@ const Loading = styled.img``;
 
 const getImageUrl = (pokemonIndex: number): string =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`;
-
-const formatNumbering = (pokemonIndex: number | string): string =>
-  `#${(typeof pokemonIndex === 'number'
-    ? String(pokemonIndex)
-    : pokemonIndex
-  ).padStart(3, '0')}`;
 
 const PokemonList: React.FC = () => {
   const { isLoading, isError, data } = usePokemon<ListResponse>();
