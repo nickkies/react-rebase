@@ -100,7 +100,7 @@ const DetailPage: React.FC = () => {
           abilities={abilities}
         />
       )}
-      {selectedTab === 'stats' && <Stats />}
+      {selectedTab === 'stats' && <Stats stats={stats} color={color} />}
       {selectedTab === 'evolution' && <Evolution />}
     </Container>
   );
