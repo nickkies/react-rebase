@@ -1,8 +1,13 @@
 import styled from '@emotion/styled/macro';
-import { formatNumbering } from 'utils';
+
+import { Color, Type } from 'types';
+import { formatNumbering, mapColorToHex, mapTypeToHex } from 'utils';
 
 type Props = {
   id?: string;
+  name?: string;
+  types?: Array<Type>;
+  color?: Color;
 };
 
 const Base = styled.div<{ color?: string }>`
@@ -83,28 +88,27 @@ const Image = styled.img`
   object-fit: contain;
 `;
 
-const PokemonInfo: React.FC<Props> = ({ id }) => {
+const PokemonInfo: React.FC<Props> = ({ id, name, color, types }) => {
   return (
-    <Base color='green'>
+    <Base color={mapColorToHex(color?.name)}>
       <ImageWrapper>
         <Image src='/assets/pocketball.svg' />
       </ImageWrapper>
       <InfoWrapper>
-        <Name>pokemon</Name>
+        <Name>{name}</Name>
         <Index>{id && formatNumbering(id)}</Index>
       </InfoWrapper>
       <TypeList>
-        <TypeWrapper color='red'>
-          <TypeInfo src='/assets/grass.svg' />
-        </TypeWrapper>
-        <TypeWrapper color='yellow'>
-          <TypeInfo src='/assets/fire.svg' />
-        </TypeWrapper>
+        {types?.map(({ type: { name } }, idx) => (
+          <TypeWrapper key={idx} color={mapTypeToHex(name)}>
+            <TypeInfo src={`/assets/${name}.svg`} />
+          </TypeWrapper>
+        ))}
       </TypeList>
       <ThumbnailImageWrapper>
         <ThumnailImage
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
-          alt='pokemon'
+          alt={name}
         />
       </ThumbnailImageWrapper>
     </Base>

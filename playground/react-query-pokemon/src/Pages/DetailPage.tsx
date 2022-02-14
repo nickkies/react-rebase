@@ -10,6 +10,8 @@ import {
   Evolution,
 } from 'components/DetailPage';
 import useSpecies from 'hooks/useSpecies';
+import usePokemon from 'hooks/usePokemon';
+import { PokemonResponse } from 'types';
 
 type Params = {
   id: string;
@@ -31,8 +33,21 @@ const DetailPage: React.FC = () => {
 
   const { id } = useParams<Params>();
 
+  const pokemonQueryResult = usePokemon<PokemonResponse>(id);
   const speciesQueryResult = useSpecies(id || '');
-  // console.dir(speciesQueryResult);
+
+  const { name, types, height, weight, abilities, baseExp, stats } = useMemo(
+    () => ({
+      name: pokemonQueryResult.data?.data.name,
+      types: pokemonQueryResult.data?.data.types,
+      height: pokemonQueryResult.data?.data.height,
+      weight: pokemonQueryResult.data?.data.weight,
+      abilities: pokemonQueryResult.data?.data.abilities,
+      baseExp: pokemonQueryResult.data?.data.base_experience,
+      stats: pokemonQueryResult.data?.data.stats,
+    }),
+    [pokemonQueryResult]
+  );
 
   const {
     color,
@@ -62,7 +77,7 @@ const DetailPage: React.FC = () => {
 
   return (
     <Container>
-      <PokemonInfo id={id} />
+      <PokemonInfo id={id} name={name} types={types} color={color} />
       <TabsWrapper>
         <Tabs
           tab={selectedTab}
