@@ -5,3 +5,4 @@ export { default as EvolutionStage } from './EvolutionStage';
 export { default as PokemonInfo } from './PokemonInfo';
 export { default as Stats } from './Stats';
 export { default as Tabs } from './Tabs';
+export { default as PokedexData } from './PokedexData';

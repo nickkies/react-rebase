@@ -85,7 +85,21 @@ const DetailPage: React.FC = () => {
           color={{ name: 'green', url: '//' }}
         />
       </TabsWrapper>
-      {selectedTab === 'about' && <About />}
+      {selectedTab === 'about' && (
+        <About
+          color={color}
+          growthRate={growthRate}
+          flavorText={flavorText}
+          genderRate={genderRate}
+          isLegendary={isLegendary}
+          isMythical={isMythical}
+          types={types}
+          weight={weight}
+          height={height}
+          baseExp={baseExp}
+          abilities={abilities}
+        />
+      )}
       {selectedTab === 'stats' && <Stats />}
       {selectedTab === 'evolution' && <Evolution />}
     </Container>
