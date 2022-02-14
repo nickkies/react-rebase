@@ -1,5 +1,5 @@
 import styled from '@emotion/styled/macro';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -9,6 +9,7 @@ import {
   Stats,
   Evolution,
 } from 'components/DetailPage';
+import useSpecies from 'hooks/useSpecies';
 
 type Params = {
   id: string;
@@ -26,12 +27,37 @@ const TabsWrapper = styled.div`
 `;
 
 const DetailPage: React.FC = () => {
-  const [selectedTab, SetSelectedTab] = useState<Tab>('about');
+  const [selectedTab, setSelectedTab] = useState<Tab>('about');
 
   const { id } = useParams<Params>();
 
+  const speciesQueryResult = useSpecies(id || '');
+  // console.dir(speciesQueryResult);
+
+  const {
+    color,
+    growthRate,
+    flavorText,
+    genderRate,
+    isLegendary,
+    isMythical,
+    evolutionChainUrl,
+  } = useMemo(
+    () => ({
+      color: speciesQueryResult.data?.data.color,
+      growthRate: speciesQueryResult.data?.data.growth_rate.name,
+      flavorText:
+        speciesQueryResult.data?.data.flavor_text_entries[0].flavor_text,
+      genderRate: speciesQueryResult.data?.data.gender_rate,
+      isLegendary: speciesQueryResult.data?.data.is_legendary,
+      isMythical: speciesQueryResult.data?.data.is_mythical,
+      evolutionChainUrl: speciesQueryResult.data?.data.evolution_chain.url,
+    }),
+    [speciesQueryResult]
+  );
+
   const handleTabClick = (tab: Tab) => {
-    SetSelectedTab(tab);
+    setSelectedTab(tab);
   };
 
   return (
