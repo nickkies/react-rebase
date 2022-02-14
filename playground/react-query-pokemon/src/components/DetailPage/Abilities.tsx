@@ -1,5 +1,14 @@
 import styled from '@emotion/styled/macro';
 
+import useAbilities from 'hooks/useAbilities';
+import { Ability, Color, EffectEntry } from 'types';
+import { mapColorToHex } from 'utils';
+
+type Props = {
+  abilities: Array<Ability>;
+  color?: Color;
+};
+
 const Base = styled.div`
   margin-top: 32px;
 `;
@@ -40,15 +49,31 @@ const Description = styled.span`
   word-wrap: break-word;
 `;
 
-const Abilities: React.FC = () => {
+const Abilities: React.FC<Props> = ({ abilities, color }) => {
+  const results = useAbilities(abilities);
+
+  const getEffectEntry = (effectEntries: Array<EffectEntry>) => {
+    return (
+      effectEntries.find((effectEntry) => effectEntry.language.name === 'en') ||
+      effectEntries[0]
+    );
+  };
+
   return (
     <Base>
-      <Title color='green'>Abilities</Title>
+      <Title color={mapColorToHex(color?.name)}>Abilities</Title>
       <List>
-        <ListItem>
-          <Label>Label</Label>
-          <Description>Description</Description>
-        </ListItem>
+        {results.map(
+          ({ data }, idx) =>
+            data && (
+              <ListItem key={idx}>
+                <Label>{data.data.name}</Label>
+                <Description>
+                  {getEffectEntry(data.data.effect_entries).effect}
+                </Description>
+              </ListItem>
+            )
+        )}
       </List>
     </Base>
   );

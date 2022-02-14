@@ -95,7 +95,7 @@ const About: React.FC<Props> = ({
         color={color}
       />
 
-      <Abilities />
+      {abilities && <Abilities abilities={abilities} color={color} />}
     </Base>
   );
 };
