@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 
 import { Ability, Color, Type } from 'types';
+import { mapTypeToHex } from 'utils';
 import { Abilities, PokedexData } from '.';
 
 type Props = {
@@ -72,20 +73,17 @@ const About: React.FC<Props> = ({
 
   return (
     <Base>
-      <FlavorText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </FlavorText>
-      <TypeList>
-        <TypeWrapper color='red'>
-          <TypeImage src='/assets/fire.svg' />
-          <TypeLabel>FIRE</TypeLabel>
-        </TypeWrapper>
-        <TypeWrapper color='green'>
-          <TypeImage src='/assets/grass.svg' />
-          <TypeLabel>GRASS</TypeLabel>
-        </TypeWrapper>
-      </TypeList>
+      <FlavorText>{flavorText}</FlavorText>
+      {types && (
+        <TypeList>
+          {types.map(({ type: { name } }, idx) => (
+            <TypeWrapper key={idx} color={mapTypeToHex(name)}>
+              <TypeImage src={`/assets/${name}.svg`} />
+              <TypeLabel>{name.toUpperCase}</TypeLabel>
+            </TypeWrapper>
+          ))}
+        </TypeList>
+      )}
 
       <PokedexData
         weight={weight}
