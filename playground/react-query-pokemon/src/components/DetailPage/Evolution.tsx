@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import useEvolutionChain from 'hooks/useEvolutionChain';
 import { Chain, Color } from 'types';
 import { EvolutionStage } from '.';
+import { mapColorToHex } from 'utils';
 
 type Props = {
   color?: Color;
@@ -29,6 +30,18 @@ const List = styled.ul`
   > li + li {
     margin-top: 24px;
   }
+`;
+
+const EmptyWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 444px);
+`;
+
+const Empty = styled.div<{ color: string }>`
+  color: ${({ color }) => color};
 `;
 
 const Evolution: React.FC<Props> = ({ url, color }) => {
@@ -66,13 +79,19 @@ const Evolution: React.FC<Props> = ({ url, color }) => {
 
   return (
     <Base>
-      <Title color='green'>Evolution</Title>
-      {evolutionChain.length && (
+      <Title color={mapColorToHex(color?.name)}>Evolution</Title>
+      {evolutionChain.length ? (
         <List>
           {evolutionChain.map((evolution, idx) => (
             <EvolutionStage key={idx} color={color} {...evolution} />
           ))}
         </List>
+      ) : (
+        <EmptyWrapper>
+          <Empty color={mapColorToHex(color?.name)}>
+            This Pokémon does not evolve.
+          </Empty>
+        </EmptyWrapper>
       )}
     </Base>
   );
