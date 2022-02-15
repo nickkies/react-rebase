@@ -1,5 +1,12 @@
 import styled from '@emotion/styled/macro';
+import useEvolutionChain from 'hooks/useEvolutionChain';
+import { Color } from 'types';
 import { EvolutionStage } from '.';
+
+type Props = {
+  color?: Color;
+  url?: string;
+};
 
 const Base = styled.div`
   margin-top: 32px;
@@ -22,7 +29,11 @@ const List = styled.ul`
   }
 `;
 
-const Evolution: React.FC = () => {
+const Evolution: React.FC<Props> = ({ url, color }) => {
+  const { data } = useEvolutionChain(url);
+
+  console.dir(data);
+
   return (
     <Base>
       <Title color='green'>Evolution</Title>

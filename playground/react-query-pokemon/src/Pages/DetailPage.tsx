@@ -101,7 +101,9 @@ const DetailPage: React.FC = () => {
         />
       )}
       {selectedTab === 'stats' && <Stats stats={stats} color={color} />}
-      {selectedTab === 'evolution' && <Evolution />}
+      {selectedTab === 'evolution' && (
+        <Evolution url={evolutionChainUrl} color={color} />
+      )}
     </Container>
   );
 };
