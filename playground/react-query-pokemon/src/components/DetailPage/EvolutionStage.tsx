@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { usePokemonQueries } from 'hooks/usePokemon';
 import { Color } from 'types';
+import { mapColorToHex } from 'utils';
 
 type Props = {
   from: {
@@ -58,14 +59,18 @@ const EvolutionStage: React.FC<Props> = ({ from, to, level, color }) => {
   return (
     <Base>
       <ImageWrapper>
-        <Image src='' />
+        <Image
+          src={prev.data?.data.sprites.other['official-artwork'].front_default}
+        />
       </ImageWrapper>
       <DividerWrapper>
-        <Text color='green'>Level 11</Text>
+        {level && <Text color={mapColorToHex(color?.name)}>Level {level}</Text>}
         <Divider />
       </DividerWrapper>
       <ImageWrapper>
-        <Image src='' />
+        <Image
+          src={next.data?.data.sprites.other['official-artwork'].front_default}
+        />
       </ImageWrapper>
     </Base>
   );
