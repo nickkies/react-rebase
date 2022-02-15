@@ -1,4 +1,19 @@
 import styled from '@emotion/styled/macro';
+import { usePokemonQueries } from 'hooks/usePokemon';
+import { Color } from 'types';
+
+type Props = {
+  from: {
+    name: string;
+    url: string;
+  };
+  to: {
+    name: string;
+    url: string;
+  };
+  level: number;
+  color?: Color;
+};
 
 const Base = styled.li`
   width: 100%;
@@ -35,7 +50,11 @@ const Divider = styled.div`
   margin-top: 4px;
 `;
 
-const EvolutionStage: React.FC = () => {
+const EvolutionStage: React.FC<Props> = ({ from, to, level, color }) => {
+  const [prev, next] = usePokemonQueries([from.name, to.name]);
+
+  console.log(prev, next);
+
   return (
     <Base>
       <ImageWrapper>

@@ -69,8 +69,8 @@ const Evolution: React.FC<Props> = ({ url, color }) => {
       <Title color='green'>Evolution</Title>
       {evolutionChain.length && (
         <List>
-          {evolutionChain.map(({ from, to, level }, idx) => (
-            <EvolutionStage key={idx} />
+          {evolutionChain.map((evolution, idx) => (
+            <EvolutionStage key={idx} color={color} {...evolution} />
           ))}
         </List>
       )}
