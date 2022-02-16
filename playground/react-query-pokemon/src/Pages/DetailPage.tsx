@@ -87,6 +87,9 @@ const DetailPage: React.FC = () => {
       </TabsWrapper>
       {selectedTab === 'about' && (
         <About
+          isLoading={
+            pokemonQueryResult.isLoading || speciesQueryResult.isLoading
+          }
           color={color}
           growthRate={growthRate}
           flavorText={flavorText}

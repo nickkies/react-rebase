@@ -5,6 +5,7 @@ import { mapTypeToHex } from 'utils';
 import { Abilities, PokedexData } from '.';
 
 type Props = {
+  isLoading: boolean;
   color?: Color;
   growthRate?: string;
   flavorText?: string;
@@ -57,6 +58,7 @@ const TypeLabel = styled.span`
 `;
 
 const About: React.FC<Props> = ({
+  isLoading,
   color,
   growthRate,
   flavorText,
@@ -74,28 +76,34 @@ const About: React.FC<Props> = ({
   return (
     <Base>
       <FlavorText>{flavorText}</FlavorText>
-      {types && (
-        <TypeList>
-          {types.map(({ type: { name } }, idx) => (
-            <TypeWrapper key={idx} color={mapTypeToHex(name)}>
-              <TypeImage src={`/assets/${name}.svg`} />
-              <TypeLabel>{name.toUpperCase}</TypeLabel>
-            </TypeWrapper>
-          ))}
-        </TypeList>
+      {isLoading ? (
+        <>로딩중!!!</>
+      ) : (
+        <>
+          {types && (
+            <TypeList>
+              {types.map(({ type: { name } }, idx) => (
+                <TypeWrapper key={idx} color={mapTypeToHex(name)}>
+                  <TypeImage src={`/assets/${name}.svg`} />
+                  <TypeLabel>{name.toUpperCase}</TypeLabel>
+                </TypeWrapper>
+              ))}
+            </TypeList>
+          )}
+
+          <PokedexData
+            weight={weight}
+            height={height}
+            genderRate={genderRate}
+            growthRate={growthRate}
+            baseExp={baseExp}
+            rarity={rarity}
+            color={color}
+          />
+
+          {abilities && <Abilities abilities={abilities} color={color} />}
+        </>
       )}
-
-      <PokedexData
-        weight={weight}
-        height={height}
-        genderRate={genderRate}
-        growthRate={growthRate}
-        baseExp={baseExp}
-        rarity={rarity}
-        color={color}
-      />
-
-      {abilities && <Abilities abilities={abilities} color={color} />}
     </Base>
   );
 };

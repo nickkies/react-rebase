@@ -45,7 +45,7 @@ const Empty = styled.div<{ color: string }>`
 `;
 
 const Evolution: React.FC<Props> = ({ url, color }) => {
-  const { isSuccess, data } = useEvolutionChain(url);
+  const { isSuccess, isError, isLoading, data } = useEvolutionChain(url);
 
   const [evolutionChain, setEvolutionChain] = useState<
     Array<{
@@ -80,7 +80,9 @@ const Evolution: React.FC<Props> = ({ url, color }) => {
   return (
     <Base>
       <Title color={mapColorToHex(color?.name)}>Evolution</Title>
-      {evolutionChain.length ? (
+      {isLoading || isError ? (
+        <>로딩이나 에러!!!!</>
+      ) : evolutionChain.length ? (
         <List>
           {evolutionChain.map((evolution, idx) => (
             <EvolutionStage key={idx} color={color} {...evolution} />
