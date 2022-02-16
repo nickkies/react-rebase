@@ -101,7 +101,7 @@ const About: React.FC<Props> = ({
               {types.map(({ type: { name } }, idx) => (
                 <TypeWrapper key={idx} color={mapTypeToHex(name)}>
                   <TypeImage src={`/assets/${name}.svg`} />
-                  <TypeLabel>{name.toUpperCase}</TypeLabel>
+                  <TypeLabel>{name.toUpperCase()}</TypeLabel>
                 </TypeWrapper>
               ))}
             </TypeList>
