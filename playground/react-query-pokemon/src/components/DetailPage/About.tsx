@@ -57,6 +57,20 @@ const TypeLabel = styled.span`
   font-size: 10px;
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Image = styled.img`
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+`;
+
 const About: React.FC<Props> = ({
   isLoading,
   color,
@@ -77,7 +91,9 @@ const About: React.FC<Props> = ({
     <Base>
       <FlavorText>{flavorText}</FlavorText>
       {isLoading ? (
-        <>로딩중!!!</>
+        <ImageWrapper>
+          <Image src='/assets/loading.gif' />
+        </ImageWrapper>
       ) : (
         <>
           {types && (

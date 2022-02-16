@@ -44,6 +44,20 @@ const Empty = styled.div<{ color: string }>`
   color: ${({ color }) => color};
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Image = styled.img`
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+`;
+
 const Evolution: React.FC<Props> = ({ url, color }) => {
   const { isSuccess, isError, isLoading, data } = useEvolutionChain(url);
 
@@ -81,7 +95,9 @@ const Evolution: React.FC<Props> = ({ url, color }) => {
     <Base>
       <Title color={mapColorToHex(color?.name)}>Evolution</Title>
       {isLoading || isError ? (
-        <>로딩이나 에러!!!!</>
+        <ImageWrapper>
+          <Image src='/assets/loading.gif' />
+        </ImageWrapper>
       ) : evolutionChain.length ? (
         <List>
           {evolutionChain.map((evolution, idx) => (
