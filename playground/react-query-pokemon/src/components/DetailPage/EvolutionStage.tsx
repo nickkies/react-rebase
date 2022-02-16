@@ -26,7 +26,7 @@ const Base = styled.li`
 const ImageWrapper = styled.div``;
 
 const Image = styled.img`
-  widht: 100%;
+  width: 100%;
   height: 100%;
   object-fit: contain;
 `;
@@ -53,8 +53,6 @@ const Divider = styled.div`
 
 const EvolutionStage: React.FC<Props> = ({ from, to, level, color }) => {
   const [prev, next] = usePokemonQueries([from.name, to.name]);
-
-  console.log(prev, next);
 
   return (
     <Base>
