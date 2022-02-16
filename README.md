@@ -94,16 +94,16 @@ The React Framework for Production
   > 5. infinite-scroll-by-scroll
   > 6. infinite-scroll-by-intersection-observer
 
-- ### recoil-todo-list
+- ### [recoil-todo-list](https://jovial-hodgkin-fcd09f.netlify.app)
 
   > recoil을 활용한 todo list
   >
   > - 달력 형식의 todo list
   > - 날짜마다 todo 생성 / 출력 / 목록 출력 / 삭제
 
-- ### react-query-pokemon
+- ### [react-query-pokemon](https://blissful-stonebraker-b10c25.netlify.app)
 
-  > react-query를 이용한 포켓몬 도감
+  > react-query를 이용한 포켓몬 도감 - 모바일 화면 최적화
   >
   > - 포켓몬 도감
   > - 포켓몬 클릭시 상세페이지 (About / Stats / Evolution)
