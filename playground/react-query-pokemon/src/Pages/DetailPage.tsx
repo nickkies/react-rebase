@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { FiArrowLeftCircle } from 'react-icons/fi';
 
 import {
   PokemonInfo,
@@ -28,8 +29,16 @@ const TabsWrapper = styled.div`
   margin: 24px auto 0;
 `;
 
+const ArrowWrapper = styled.div`
+  position: fixed;
+  top: 90vh;
+  right: 25px;
+  opacity: 0.5;
+`;
+
 const DetailPage: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>('about');
+  const navigate = useNavigate();
 
   const { id } = useParams<Params>();
 
@@ -79,11 +88,7 @@ const DetailPage: React.FC = () => {
     <Container>
       <PokemonInfo id={id} name={name} types={types} color={color} />
       <TabsWrapper>
-        <Tabs
-          tab={selectedTab}
-          onClick={handleTabClick}
-          color={{ name: 'green', url: '//' }}
-        />
+        <Tabs tab={selectedTab} onClick={handleTabClick} color={color} />
       </TabsWrapper>
       {selectedTab === 'about' && (
         <About
@@ -107,6 +112,9 @@ const DetailPage: React.FC = () => {
       {selectedTab === 'evolution' && (
         <Evolution url={evolutionChainUrl} color={color} />
       )}
+      <ArrowWrapper onClick={() => navigate('/')}>
+        <FiArrowLeftCircle size='60' color={color?.name} />
+      </ArrowWrapper>
     </Container>
   );
 };
