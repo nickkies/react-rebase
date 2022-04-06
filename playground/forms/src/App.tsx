@@ -1,7 +1,11 @@
-import React from 'react';
+import ControlledWrapper from './Components/ControlledWrapper';
 
 function App() {
-  return <div className='App'>Hello world!</div>;
+  return (
+    <div className='App'>
+      <ControlledWrapper />
+    </div>
+  );
 }
 
 export default App;
