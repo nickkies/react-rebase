@@ -1,5 +1,12 @@
+import { Footer, Header } from 'Components';
+
 const MainPage: React.FC = () => {
-  return <div>MainPage</div>;
+  return (
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
 };
 
 export default MainPage;
