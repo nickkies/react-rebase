@@ -28,7 +28,7 @@ const Summary = styled.span`
   text-align: center;
 `;
 
-const Emphasis = styled.section`
+const Emphasis = styled.em`
   color: #ff0558;
   font-size: 19px;
   font-weight: 500;
