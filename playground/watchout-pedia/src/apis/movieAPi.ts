@@ -15,4 +15,4 @@ export const similarApi = (movieId: string) =>
   axiosInstance.get(`/movie/${movieId}/similar`);
 
 export const searchApi = (query: string) =>
-  axiosInstance.get(`/search/movie?query?=${query}`);
+  axiosInstance.get(`/search/movie?query=${query}`);
